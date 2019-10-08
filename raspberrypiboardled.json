@@ -1,0 +1,84 @@
+[
+    {
+        "id": "5fc1cf3a.d659e",
+        "type": "exec",
+        "z": "d62ca71d.243728",
+        "command": "echo gpio  | sudo tee /sys/class/leds/led0/trigger",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 540,
+        "y": 80,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "11f2cb85.50b1f4",
+        "type": "inject",
+        "z": "d62ca71d.243728",
+        "name": "ボードLEDをGPIO20に",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "5fc1cf3a.d659e",
+                "96405c80.8979a"
+            ]
+        ]
+    },
+    {
+        "id": "74210ad3.0b1e24",
+        "type": "exec",
+        "z": "d62ca71d.243728",
+        "command": "echo 20 | sudo tee /sys/class/leds/led0/gpio",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "96405c80.8979a",
+        "type": "delay",
+        "z": "d62ca71d.243728",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "74210ad3.0b1e24"
+            ]
+        ]
+    }
+]
